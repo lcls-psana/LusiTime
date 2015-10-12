@@ -11,6 +11,10 @@ Package author: Andy Salnikov
 Please describe any modifications that you made to the package in the
 reverse time order.
 
+Tag: V00-01-08
+2015-10-12 Igor Gaponenko
+- extended LusiInterval class with one more report
+
 Tag: V00-01-07
 2015-08-07 Igor Gaponenko
 - RHEL7, Apache 2.4, PHP 5.4 migration (JIRA PCI-37)

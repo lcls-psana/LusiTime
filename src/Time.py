@@ -98,7 +98,7 @@ class Time ( object ) :
     def to64(self):
         """ Pack time into a 64-bit number. """
         if self._sec is None : raise ValueError("Time.to64: converting invalid object")
-        return self._sec*1000000000L + self._nsec
+        return self._sec*1000000000 + self._nsec
 
     def toString(self, fmt="%F %T%f%z" ):
         """ Format time according to format string """

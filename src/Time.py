@@ -30,6 +30,7 @@ part of it, please give an appropriate acknowledgment.
 #------------------------------
 #  Module's version from CVS --
 #------------------------------
+from past.builtins import cmp
 __version__ = "$Revision: 4 $"
 # $Source$
 

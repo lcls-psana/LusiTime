@@ -18,6 +18,7 @@ part of it, please give an appropriate acknowledgment.
 
 @author Andrei Salnikov
 """
+from __future__ import division
 
 
 #------------------------------

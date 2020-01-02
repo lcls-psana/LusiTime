@@ -10,12 +10,12 @@
 
 """Unit test application for LusiTime.Time class.
 
-This software was developed for the LUSI project.  If you use all or 
+This software was developed for the LUSI project.  If you use all or
 part of it, please give an appropriate acknowledgement.
 
 @see RelatedModule
 
-@version $Id$ 
+@version $Id$
 
 @author Andrei Salnikov
 """
@@ -54,7 +54,7 @@ class LusiTimePyTest ( unittest.TestCase ) :
 
     def setUp(self) :
         pass
-    
+
     def tearDown(self) :
         pass
 
@@ -108,12 +108,12 @@ class LusiTimePyTest ( unittest.TestCase ) :
         self.assert_( not ( t0 == t1 ) ) ;
         self.assert_( t0 != t1 ) ;
         self.assert_( t0 < t1 ) ;
-    	self.assert_( t0 <= t1 ) ;
+        self.assert_( t0 <= t1 ) ;
         self.assert_( not ( t0 > t1 ) ) ;
         self.assert_( not ( t0 >= t1 ) ) ;
 
     def test_cmp_5(self):
-    	t0 = Time( 1234567, 123456 )
+        t0 = Time( 1234567, 123456 )
         t1 = Time( 123, 123 )
         self.assert_( not ( t0 == t1 ) ) ;
         self.assert_( t0 != t1 ) ;
@@ -133,7 +133,7 @@ class LusiTimePyTest ( unittest.TestCase ) :
         self.assertRaises( Exception, lambda : t0 >= t1 ) ;
 
     def test_cmp_7(self):
-        t0 = Time( 123, 123 ) 
+        t0 = Time( 123, 123 )
         t1 = Time() ;
         self.assertRaises( Exception, lambda : t0 == t1 ) ;
         self.assertRaises( Exception, lambda : t0 != t1 ) ;
@@ -154,16 +154,16 @@ class LusiTimePyTest ( unittest.TestCase ) :
 
     def test_hash(self):
 
-    	d = {}
-    	d[Time(1)] = 1000
-    	d[Time(2)] = 10000
-    	d[Time(1000)] = 3
+        d = {}
+        d[Time(1)] = 1000
+        d[Time(2)] = 10000
+        d[Time(1000)] = 3
 
-    	self.assertEqual( len(d), 3 )
-    	self.assertEqual( d[Time(1)], 1000 )
-    	self.assertEqual( d[Time(2)], 10000 )
-    	self.assertEqual( d[Time(1000)], 3 )
-    	self.assertEqual( d.get(Time(5),5), 5 )
+        self.assertEqual( len(d), 3 )
+        self.assertEqual( d[Time(1)], 1000 )
+        self.assertEqual( d[Time(2)], 10000 )
+        self.assertEqual( d[Time(1000)], 3 )
+        self.assertEqual( d.get(Time(5),5), 5 )
         self.assertRaises( Exception, lambda : d.get(Time(),None) )
 
 #

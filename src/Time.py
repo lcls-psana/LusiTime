@@ -16,7 +16,7 @@ This is the "library module" as opposed to executable module. Library
 modules provide class definitions or function definitions, but these
 scripts cannot be run by themselves.
 
-This software was developed for the LUSI project.  If you use all or 
+This software was developed for the LUSI project.  If you use all or
 part of it, please give an appropriate acknowledgment.
 
 @see RelatedModule
@@ -47,7 +47,7 @@ import time
 #-----------------------------
 # Imports for other modules --
 #-----------------------------
-import TimeFormat
+import LusiTime.TimeFormat
 
 #----------------------------------
 # Local non-exported definitions --
@@ -61,8 +61,8 @@ import TimeFormat
 #  Class definition --
 #---------------------
 class Time ( object ) :
-    """Common time class. 
-    
+    """Common time class.
+
     Counts time since the standard UNIX epoch. Provides nanosecond precision.
     """
 
@@ -104,7 +104,7 @@ class Time ( object ) :
     def toString(self, fmt="%F %T%f%z" ):
         """ Format time according to format string """
         if self._sec is None : raise ValueError("Time.toString: converting invalid object")
-        return TimeFormat.formatTime( self._sec, self._nsec, fmt )
+        return LusiTime.TimeFormat.formatTime( self._sec, self._nsec, fmt )
 
     def __str__ ( self ):
         """ Convert to a string """
@@ -121,8 +121,26 @@ class Time ( object ) :
         if self._sec is None or other._sec is None : raise ValueError ( "Time.__cmp__: comparing invalid times" )
         return cmp ( ( self._sec,self._nsec ), ( other._sec,other._nsec ) )
 
+    def __eq__ ( self, other):
+        return self.__cmp__(other) == 0
+
+    def __ne__ ( self, other):
+        return self.__cmp__(other) != 0
+
+    def __lt__ ( self, other):
+        return self.__cmp__(other) < 0
+
+    def __le__ ( self, other):
+        return self.__cmp__(other) <= 0
+
+    def __gt__ ( self, other):
+        return self.__cmp__(other) > 0
+
+    def __ge__ ( self, other):
+        return self.__cmp__(other) >= 0
+
     def __hash__ ( self ):
-        """ calculate hash value for use in dictionaries, returned hash value 
+        """ calculate hash value for use in dictionaries, returned hash value
         should be 32-bit integer """
         if self._sec is None : raise ValueError ( "Time.__hash__: invalid time value" )
         return hash( (self._sec, self._nsec) )
@@ -148,9 +166,9 @@ class Time ( object ) :
     @staticmethod
     def parse( s ):
         """ Convert string presentation into time object """
-        sec, nsec = TimeFormat.parseTime( s )
+        sec, nsec = LusiTime.TimeFormat.parseTime( s )
         return Time( sec, nsec )
-    
+
     #--------------------
     #  Private methods --
     #--------------------

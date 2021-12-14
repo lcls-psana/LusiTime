@@ -90,7 +90,7 @@ namespace LusiTime {
  * Parse the time string and return time
  */
 Time
-TimeFormat::parse( const std::string& timeStr ) throw (Exception)
+TimeFormat::parse( const std::string& timeStr ) noexcept
 {
   time_t sec = 0 ;
   long nsec = 0 ;
@@ -185,7 +185,7 @@ TimeFormat::parse( const std::string& timeStr ) throw (Exception)
  * Convert time to string according to format
  */
 std::string
-TimeFormat::format ( const Time& time, const std::string& afmt ) throw (Exception)
+TimeFormat::format ( const Time& time, const std::string& afmt )
 {
   if ( not time.isValid()) return "<InvalidTime>" ;
 

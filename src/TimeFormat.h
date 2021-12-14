@@ -54,12 +54,12 @@ public:
   /**
    * Parse the time string and return time
    */
-  static Time parse( const std::string& timeStr ) throw (Exception) ;
+  static Time parse( const std::string& timeStr ) noexcept;
   
   /**
    * Convert time to string according to format
    */
-  static std::string format ( const Time& time, const std::string& afmt ) throw (Exception) ;
+  static std::string format ( const Time& time, const std::string& afmt );
   
 protected:
 

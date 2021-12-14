@@ -88,7 +88,7 @@ public:
     *   20090605T101232.123+0100
     *   S1234567890.001
     */
-  static Time parse(const std::string& inTimeStr) throw (Exception) ;
+  static Time parse(const std::string& inTimeStr);
 
   /**
     * Unpack a 64-bit number into time
@@ -98,14 +98,14 @@ public:
     *
     * The overflow is reported through the exception
     */
-  static Time from64(uint64_t inNumber) throw (Exception) ;
+  static Time from64(uint64_t inNumber);
 
   /**
     * Pack time into a 64-bit number
     *
     * An input timestamp must be valid. Otherwise an exception will be thrown.
     */
-  static uint64_t to64(const Time& inTime) throw (Exception) ;
+  static uint64_t to64(const Time& inTime);
 
   // Default constructor, makes invalid time
   Time () {
@@ -145,7 +145,7 @@ public:
     * If the object is not valid then the method will throw an
     * exception.
     */
-  std::string toString() const throw (Exception) ;
+  std::string toString() const ;
 
   /**
     * Translate into the string representation according to given format.
@@ -168,7 +168,7 @@ public:
     * If the object is not valid then the method will throw an
     * exception.
     */
-  std::string toString( const std::string& fmt ) const throw (Exception) ;
+  std::string toString( const std::string& fmt ) const;
 
 protected:
 

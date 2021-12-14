@@ -46,14 +46,14 @@ Time Time::now()
 }
 
 /// Parse an input string as the date and time
-Time Time::parse( const std::string& inTimeStr ) throw (Exception)
+Time Time::parse( const std::string& inTimeStr )
 {
   return TimeFormat::parse ( inTimeStr ) ;
 }
 
 /// Translate into the string representation.
 
-std::string Time::toString() const throw (Exception)
+std::string Time::toString() const
 {
   // use default format for string presentation including nanoseconds 
   // and timezone offset
@@ -62,7 +62,7 @@ std::string Time::toString() const throw (Exception)
 
 /// Translate into the string representation.
 
-std::string Time::toString( const std::string& fmt ) const throw (Exception)
+std::string Time::toString( const std::string& fmt ) const
 {
   return TimeFormat::format( *this, fmt ) ;
 }
@@ -72,7 +72,7 @@ std::string Time::toString( const std::string& fmt ) const throw (Exception)
 const long long unsigned NSEC_IN_ONE_SEC = 1*1000*1000*1000ULL ;
 const long long unsigned MAX_NSEC = (2*1024*1024*1024ULL - 1) * NSEC_IN_ONE_SEC ;
 
-Time Time::from64( uint64_t inNumber ) throw (Exception)
+Time Time::from64( uint64_t inNumber )
 {
   if (inNumber > MAX_NSEC)
     throw Exception( "Time::from64(number): invalid number" ) ;
@@ -81,7 +81,7 @@ Time Time::from64( uint64_t inNumber ) throw (Exception)
                inNumber % NSEC_IN_ONE_SEC ) ;
 }
 
-uint64_t Time::to64( const Time& inTime ) throw (Exception)
+uint64_t Time::to64( const Time& inTime )
 {
   if (!inTime.isValid())
     throw Exception( "Time::to64(Time): invalid time" ) ;
